@@ -10,7 +10,7 @@ export const getStaticProps = async () => {
   //   },
   // };
 
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos')
   const data = await res.json();
 
   // const res = await fetch(
@@ -18,6 +18,7 @@ export const getStaticProps = async () => {
   //   options
   // );
   // const data = await res.json();
+  console.log(data)
 
 
   return {
@@ -36,7 +37,7 @@ const Recipes = ({ comments }) => {
       {comments.map((comment) => (
         <Link href={'/recipes/' + comment.id} key={comment.id}>
         <a className={styles.single}>
-        <h1>{comment.email}</h1>
+        <h1>{comment.id}</h1>
         </a>
         </Link>
       ))}
